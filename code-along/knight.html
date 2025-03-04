@@ -36,7 +36,19 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <!-- Use it like any other HTML element -->
-  <model-viewer id="knight" src="../assets/knight2.glb" alt="A 3D model of a cartoon animated knight" camera-controls></model-viewer>
-  
+  <model-viewer id="knight" src="../assets/knight.glb" alt="A 3D model of a cartoon animated knight" camera-controls 
+  autoplay
+  animation-name="Look Around"></model-viewer>
+  <script>
+    const modelViewer = document.querySelector("model-viewer#knight");
+    const animNames = ["Look Around", "Walking", "Die", "Dance"];
+
+    setInterval(() => {
+      modelViewer.animationName = animNames[Math.floor(Math.random() * animNames.length)];
+    }, 5000);
+</script>
+
+
+
 </body>
 </html>
